@@ -1,5 +1,22 @@
 <div class="container">
   <div class="login-container">
-    <h1>Login</h1>
+    <app-title title="Login"></app-title>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <form-input 
+        [control]="fc['username']"
+        [showErrorsWhen]="isSubmitted"
+        label="Username"
+      ></form-input>
+      <form-input 
+        [control]="fc['password']"
+        [showErrorsWhen]="isSubmitted"
+        type="password"
+        label="Password"
+      ></form-input>
+      <form-button 
+        text="Login"
+      >
+      </form-button>
+    </form>
   </div>
 </div>
