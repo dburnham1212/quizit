@@ -3,6 +3,7 @@ import { TitleComponent } from "../../partials/title/title.component";
 import { FormInputComponent } from '../../partials/form-input/form-input.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormButtonComponent } from "../../partials/form-button/form-button.component";
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -10,10 +11,11 @@ import { FormButtonComponent } from "../../partials/form-button/form-button.comp
     templateUrl: './login.component.html',
     styleUrl: './login.component.css',
     imports: [
-        TitleComponent,
-        ReactiveFormsModule,
-        FormInputComponent,
-        FormButtonComponent
+      RouterModule,
+      TitleComponent,
+      ReactiveFormsModule,
+      FormInputComponent,
+      FormButtonComponent
     ]
 })
 export class LoginComponent implements OnInit{
