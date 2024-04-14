@@ -1,8 +1,12 @@
 .container{
-  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .container button{
+  width: 75%;
   background-color: #0047AB;
   color: white;
   border: 1px solid black;
