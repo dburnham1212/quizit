@@ -5,15 +5,17 @@
   >
     QuizIt
   </div>
-  <ul>
+  <ul *ngIf="!isAuth">
     <li>
       <a routerLink="login">Login</a>
     </li>
     <li>
       <a routerLink="register">Register</a>
     </li>
+  </ul>
+  <ul *ngIf="isAuth">
     <li>
-      <a>Link3</a>
+      <a (click)="logout()">Logout</a>
     </li>
   </ul>
 </div>

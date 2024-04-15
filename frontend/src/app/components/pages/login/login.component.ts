@@ -3,7 +3,8 @@ import { TitleComponent } from "../../partials/title/title.component";
 import { FormInputComponent } from '../../partials/form-input/form-input.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormButtonComponent } from "../../partials/form-button/form-button.component";
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { UserService } from '../../../services/user.service';
 
 @Component({
     selector: 'app-login',
@@ -21,7 +22,7 @@ import { RouterModule } from '@angular/router';
 export class LoginComponent implements OnInit{
   loginForm!: FormGroup;
   isSubmitted = false;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -37,5 +38,12 @@ export class LoginComponent implements OnInit{
   submit() {
     this.isSubmitted = true;
     if(this.loginForm.invalid) return;
+
+    this.userService.login({
+      username: this.fc['username'].value,
+      password: this.fc['password'].value
+    }).subscribe(() => {
+      this.router.navigateByUrl('/');
+    });
   }
 }

@@ -3,8 +3,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { TitleComponent } from "../../partials/title/title.component";
 import { FormInputComponent } from "../../partials/form-input/form-input.component";
 import { FormButtonComponent } from "../../partials/form-button/form-button.component";
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { PasswordsMatchValidator } from '../../../shared/validators/password_match_validator';
+import { IUserRegister } from '../../../shared/interfaces/IUserRegister';
+import { UserService } from '../../../services/user.service';
 
 @Component({
     selector: 'app-register',
@@ -22,7 +24,7 @@ import { PasswordsMatchValidator } from '../../../shared/validators/password_mat
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   isSubmitted = false;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -43,5 +45,17 @@ export class RegisterComponent implements OnInit {
   submit() {
     this.isSubmitted = true;
     if(this.registerForm.invalid) return;
+
+    const fv = this.registerForm.value;
+    const user: IUserRegister = {
+      username: fv.username,
+      email: fv.email,
+      password: fv.password,
+      confirmPassword: fv.confirmPassword,
+    };
+
+    this.userService.register(user).subscribe(_ => {
+      this.router.navigateByUrl('/');
+    })
   }
 }
