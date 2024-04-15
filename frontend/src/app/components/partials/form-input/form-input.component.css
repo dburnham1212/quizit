@@ -22,7 +22,7 @@ form-input-validation{
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 0;
+  top: -2.25rem;
   right: 0;
   height: 100%;
 }
