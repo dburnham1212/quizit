@@ -32,6 +32,7 @@ export class FormInputValidationComponent implements OnInit, OnChanges{
   }
 
   checkValidation() {
+    console.log("here");
     const errors = this.control.errors;
     if(!errors) {
       this.errorMessages = [];

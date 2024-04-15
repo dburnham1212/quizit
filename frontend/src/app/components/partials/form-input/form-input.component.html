@@ -1,5 +1,5 @@
 <form-input-container [label]="label">
-  <input [type]="type" [placeholder]="label"/>
+  <input [type]="type" [placeholder]="label" [formControl] = "formControl"/>
   <form-input-validation
     [control]="control"
     [showErrorsWhen]="showErrorsWhen"

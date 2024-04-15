@@ -4,6 +4,7 @@ import { TitleComponent } from "../../partials/title/title.component";
 import { FormInputComponent } from "../../partials/form-input/form-input.component";
 import { FormButtonComponent } from "../../partials/form-button/form-button.component";
 import { RouterModule } from '@angular/router';
+import { PasswordsMatchValidator } from '../../../shared/validators/password_match_validator';
 
 @Component({
     selector: 'app-register',
@@ -29,6 +30,9 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]],
       confirmPassword: ['', [Validators.required]]
+    },
+    {
+      validators: PasswordsMatchValidator('password', 'confirmPassword')
     })
   }
 
