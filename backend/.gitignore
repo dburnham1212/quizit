@@ -1,0 +1,5 @@
+# dependencies
+/node_modules
+
+# exlude .env file
+.env
