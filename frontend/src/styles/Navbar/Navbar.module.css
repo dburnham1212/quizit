@@ -1,0 +1,21 @@
+.navbar {
+    height: 50px;
+    border-bottom: 1px solid black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 1rem;
+}
+
+.nav_link {
+    text-decoration: none;
+    color: darkblue;
+}
+
+.nav_link:hover {
+    color: blue;
+}

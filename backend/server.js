@@ -25,6 +25,7 @@ mongoose
 
 server.get("/quizzes", async (request, response) => {
     const quizzes = await Quiz.find();
-    console.log(quizzes);
     response.json(quizzes);
 });
+
+server.post("/login", async (request, response) => {});
