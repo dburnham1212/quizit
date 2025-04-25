@@ -11,3 +11,15 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+.background {
+    position: fixed;
+    z-index: -1;
+    background-image: url("../public/question_marks_background.jpg");
+    opacity: 0.5;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

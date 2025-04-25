@@ -6,14 +6,16 @@ import HomePage from "./components/pages/HomePage";
 
 function App() {
     return (
-        <BrowserRouter>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/login" element={<SigninPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-            </Routes>
-        </BrowserRouter>
+        <>
+            <BrowserRouter>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/login" element={<SigninPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
+                </Routes>
+            </BrowserRouter>
+        </>
     );
 }
 
